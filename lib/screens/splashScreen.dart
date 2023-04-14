@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:student_helper/screens/homePage.dart';
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
   @override

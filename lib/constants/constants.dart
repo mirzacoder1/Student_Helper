@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 Color scaffoldBackgroundColor = Color.fromARGB(255, 251, 251, 254);
 Color cardColor = Color.fromARGB(255, 1, 6, 21);
+Color bgColor = Color(0xff00A67E);
+Color chatBgColor = Color(0xff343541);
 
 // List<String> models = [
 //   'Model1',

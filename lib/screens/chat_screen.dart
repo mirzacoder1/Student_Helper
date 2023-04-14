@@ -62,10 +62,12 @@ class _ChatScreenState extends State<ChatScreen> {
             icon: const Icon(Icons.arrow_back),
           ),
         ),
-        title: const Text(
-          "StudentHELPER....",
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),
+        title: Center(
+          child: const Text(
+            "Chat Assistant...",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,/*   fontStyle: FontStyle.italic */),
+          ),
         ),
         actions: [
           IconButton(
@@ -82,7 +84,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Flexible(
               child: ListView.builder(
                   controller: _listScrollController,
-                  reverse: true,
+                  // reverse: true,
                   itemCount: chatProvider.getChatList.length, //chatList.length,
                   itemBuilder: (context, index) {
                     return ChatWidget(

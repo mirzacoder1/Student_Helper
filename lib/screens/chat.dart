@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:student_helper/providers/chats_provider.dart';
 import 'package:student_helper/providers/models_provider.dart';
-import 'chat_screen.dart';
-
-class chatApp extends StatelessWidget {
-  const chatApp({super.key});
-
-  // This widget is the root of your application.
+import 'package:student_helper/screens/chat_screen.dart';
+class ChatApp extends StatelessWidget {
+  const ChatApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

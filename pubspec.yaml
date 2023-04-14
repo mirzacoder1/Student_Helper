@@ -43,6 +43,9 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_launcher_icons: ^0.12.0
   animated_splash_screen:
+  avatar_glow: ^2.0.2
+  speech_to_text: ^6.1.1
+  flutter_tts: ^3.6.3
 
 dev_dependencies:
   flutter_test:

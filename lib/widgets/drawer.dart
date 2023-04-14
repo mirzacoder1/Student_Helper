@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:student_helper/screens/chat.dart';
 import 'package:student_helper/screens/homePage.dart';
+import 'package:student_helper/screens/speech_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -9,7 +10,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageUrl =
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDx0r_CWdry4br1C2vVdxENTUmVEZWZusVuaBuQcIxGw&s";
+        "https://cdn.codechef.com/sites/default/files/uploads/pictures/38a64b4569cb6cbbdfc6fb8ea101ffec.jpeg";
 
     return Drawer(
       child: ListView(
@@ -65,7 +66,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => chatApp(),
+                    builder: (context) => ChatApp(),
                   ));
             },
           ),
@@ -84,7 +85,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => chatApp(),
+                    builder: (context) => SpeechScreen(),
                   ));
             },
           ),

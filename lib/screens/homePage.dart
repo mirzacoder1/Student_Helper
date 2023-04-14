@@ -3,6 +3,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:student_helper/screens/chat.dart';
+import 'package:student_helper/screens/speech_screen.dart';
 import 'package:student_helper/widgets/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,107 +29,108 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        drawer: MyDrawer(),
-        appBar: AppBar(
-          title: Text("Student Assistant..."),
-          centerTitle: true,
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => chatApp()));
-                  // context, MaterialPageRoute(builder: (context) => ChatScreen()));
-                },
-                child: Icon(
-                  Icons.mic_rounded,
-                  size: 25.0,
-                ),
-              ),
-            )
-          ],
+    return Scaffold(
+      drawer: MyDrawer(),
+      appBar: AppBar(
+        title: Text(
+          "Student Assistant...",
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        body: ListView(
-          padding: EdgeInsets.only(top: 10.0),
-          children: [
-            Center(
-              child: CarouselSlider(
-                options: CarouselOptions(
-                    enlargeCenterPage: true,
-                    enableInfiniteScroll: true,
-                    autoPlay: true),
-                items: imageList
-                    .map((e) => ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: [
-                              Image.network(
-                                e,
-                                height: 250.0,
-                                width: 250.0,
-                                fit: BoxFit.fill,
-                              )
-                            ],
-                          ),
-                        ))
-                    .toList(),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SpeechScreen()));
+                // context, MaterialPageRoute(builder: (context) => ChatScreen()));
+              },
+              child: Icon(
+                Icons.mic_rounded,
+                size: 25.0,
               ),
             ),
-            new Divider(height: 25.0),
-            Card(
-              child: Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDx0r_CWdry4br1C2vVdxENTUmVEZWZusVuaBuQcIxGw&s",
-                fit: BoxFit.contain,
-                width: 100.0,
-                height: 100.0,
-              ),
-              margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0),
+          )
+        ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.only(top: 10.0),
+        children: [
+          Center(
+            child: CarouselSlider(
+              options: CarouselOptions(
+                  enlargeCenterPage: true,
+                  enableInfiniteScroll: true,
+                  autoPlay: true),
+              items: imageList
+                  .map((e) => ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Stack(
+                          fit: StackFit.expand,
+                          children: [
+                            Image.network(
+                              e,
+                              height: 250.0,
+                              width: 250.0,
+                              fit: BoxFit.fill,
+                            )
+                          ],
+                        ),
+                      ))
+                  .toList(),
             ),
-            Divider(color: Colors.transparent),
-            SizedBox(
-              width: double.infinity,
-              height: 130.0,
-              child: Card(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("MMMUT Gorakhpur",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20.0)),
-                      SizedBox(
-                        child: Divider(),
-                      ),
-                      Text("Vice Chancellor: B.P. Pandey",
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(
-                        child: Divider(),
-                      ),
-                      Text("Computer Sc & Eng Dept, MMMUT Gorakhpur",
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                    ],
-                  ),
+          ),
+          new Divider(height: 25.0),
+          CircleAvatar(
+            radius: 50,
+            child: Image.network(
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDx0r_CWdry4br1C2vVdxENTUmVEZWZusVuaBuQcIxGw&s",
+              fit: BoxFit.contain,
+              width: 100.0,
+              height: 100.0,
+            ),
+          ),
+          Divider(color: Colors.transparent),
+          SizedBox(
+            width: double.infinity,
+            height: 130.0,
+            child: Card(
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("MMMUT Gorakhpur",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20.0)),
+                    SizedBox(
+                      child: Divider(),
+                    ),
+                    Text("Vice Chancellor: B.P. Pandey",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    SizedBox(
+                      child: Divider(),
+                    ),
+                    Text("Computer Sc & Eng Dept, MMMUT Gorakhpur",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                  ],
                 ),
               ),
-            )
-          ],
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          tooltip: 'Connect To Assistant',
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => chatApp()));
-            // context, MaterialPageRoute(builder: (context) => ChatScreen()));
-          },
-          icon: Icon(Icons.chat),
-          label: Text("Chat"),
-        ),
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        tooltip: 'Connect To Assistant',
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ChatApp()));
+          // context, MaterialPageRoute(builder: (context) => ChatScreen()));
+        },
+        icon: Icon(Icons.chat),
+        label: Text("Chat"),
       ),
     );
   }
